@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="addtaskViewModel"
+                type="com.test.addtask.viewmodel.AddTaskViewModel" />
+    </data>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="16dp"
+>
+    <TextView android:layout_width="wrap_content"
+              android:text="@string/user_deatils"
+              android:textSize="20dp"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="wrap_content"
+              android:text="username"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="wrap_content"
+              android:text="User mobile"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="wrap_content"
+              android:text="user email id"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="wrap_content"
+              android:text="adadad dbfbdbfbf dbfkbdafabdfdskjfksd dsfbwkdfkbfkjbds dsfbkdsbf sdfbbsdfbs jsdbfkbs bsdkbksdbf fbsd "
+              android:layout_height="wrap_content"/>
+
+    <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Title"
+            android:layout_marginTop="5dp"
+            android:text='@{addtaskViewModel.task.get().title}'
+            android:inputType="text"/>
+
+    <EditText
+            android:id="@+id/edit_text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Type"
+            android:layout_marginTop="5dp"
+            android:text='@{addtaskViewModel.task.get().type}'
+            android:inputType="textMultiLine"/>
+    <EditText
+            android:id="@+id/et_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Status"
+            android:layout_marginTop="5dp"
+            android:text='@{addtaskViewModel.task.get().status}'
+            android:inputType="text"/>
+    <EditText
+            android:id="@+id/et_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Select Assignees"
+            android:drawableRight="@mipmap/ic_arrow_down"
+            android:inputType="text"/>
+    <EditText
+            android:id="@+id/et_assigners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select date"
+            android:layout_marginTop="5dp"
+            android:editable="false"
+            android:onClick="@{() -> addtaskViewModel.selectDate()}"
+            android:drawableRight="@mipmap/ic_arrow_down"
+            android:inputType="text"/>
+
+    <EditText
+            android:id="@+id/et_date"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:text='@{addtaskViewModel.task.get().date}'
+            android:hint="Task place"
+            android:inputType="text"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:text="Permission"
+              android:textSize="20dp"
+              android:layout_marginTop="15dp"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="match_parent"
+              android:text="Selected"
+              android:drawableRight="@mipmap/ic_arrow_right"
+              android:layout_height="wrap_content"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:text="Task attachements"
+              android:textSize="20dp"
+              android:layout_marginTop="15dp"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="match_parent"
+              android:text="Only attach documents"
+              android:layout_height="wrap_content"/>
+    <Button android:layout_width="match_parent"
+            android:text="Add attachement" android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
+    <TextView android:layout_width="wrap_content"
+              android:text="Task attachements"
+              android:textSize="20dp"
+              android:layout_marginTop="15dp"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="match_parent"
+              android:text="Selected"
+              android:layout_height="wrap_content"/>
+    <Button android:layout_width="match_parent"
+            android:text="Add attachement" android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
+
+
+</LinearLayout>
+    </ScrollView>
+</layout>

@@ -1,19 +1,24 @@
 package com.test.addtask.db
 
+
+
 import android.content.Context
 import android.os.AsyncTask
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.test.addtask.db.dao.NoteDao
-import com.test.addtask.db.entity.Note
+import com.test.addtask.db.converter.GithubTypeConverters
+import com.test.addtask.db.dao.TaskDao
+import com.test.addtask.db.entity.Task
 
 
-@Database(entities = [Note::class], version = 1)
+@Database(entities = [Task::class], version = 1)
+@TypeConverters(GithubTypeConverters::class)
 abstract class NoteDatabase : RoomDatabase() {
 
-    abstract fun noteDao(): NoteDao
+    abstract fun noteDao(): TaskDao
 
 
     companion object {
@@ -24,7 +29,7 @@ abstract class NoteDatabase : RoomDatabase() {
                 synchronized(NoteDatabase::class) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        NoteDatabase::class.java, "db_addtasks"
+                        NoteDatabase::class.java, "task_database"
                     )
                         .fallbackToDestructiveMigration()
                         .addCallback(roomCallback)
@@ -51,9 +56,9 @@ abstract class NoteDatabase : RoomDatabase() {
         private val noteDao = db?.noteDao()
 
         override fun doInBackground(vararg p0: Unit?) {
-            noteDao?.insert(Note("Title 1", "description 1"))
-            noteDao?.insert(Note("Title 2", "description 2"))
-            noteDao?.insert(Note("Title 3", "description 3"))
+//            noteDao?.insert(Task("Title 1", "description 1"))
+//            noteDao?.insert(Task("Title 2", "description 2"))
+//            noteDao?.insert(Task("Title 3", "description 3"))
         }
     }
 

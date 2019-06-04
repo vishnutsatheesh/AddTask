@@ -1,5 +1,5 @@
 
-
+package com.test.addtask.adapter
 
 import android.view.LayoutInflater
 import android.widget.TextView
@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 import com.test.addtask.R
-import com.test.addtask.db.entity.Note
+import com.test.addtask.db.entity.Task
 
-class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
-    private var notes: List<Note> = ArrayList()
+class TaskAdapter : RecyclerView.Adapter<TaskAdapter.NoteHolder>() {
+    private var tasks: List<Task> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -20,17 +20,17 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
     }
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
-        val currentNote = notes[position]
+        val currentNote = tasks[position]
         holder.textViewTitle.text = currentNote.title
-        holder.textViewDescription.text = currentNote.description
+        holder.textViewDescription.text = currentNote.taskplace
     }
 
     override fun getItemCount(): Int {
-        return notes.size
+        return tasks.size
     }
 
-    fun setNotes(notes: List<Note>) {
-        this.notes = notes
+    fun setNotes(tasks: List<Task>) {
+        this.tasks = tasks
         notifyDataSetChanged()
     }
 
